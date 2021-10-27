@@ -1,35 +1,23 @@
 import {createReducer} from '@reduxjs/toolkit';
 
 import {
-  changeLoadingFormProcessStatus,
-  changeIsFormSendedSuccessfullyStatus,
-  changeIsFormEditedSuccessfullyStatus,
-  showErrorFormMessage
+  changeLogin,
+  changePassword
 } from '../actions';
 
 const initialState = {
-  isFormSending: false,
-  isFormSendedSuccessfully: null,
-  isFormEditedSuccessfully: null,
-  isShowFormErrorMessage: false,
-  formErrorMessage: null,
+  login: '',
+  password: ''
 };
 
 const form = createReducer(initialState, (builder) => {
   builder
-    .addCase(changeLoadingFormProcessStatus, (state, action) => {
-      state.isFormSending = action.payload;
+    .addCase(changeLogin, (state, action) => {
+      state.login = action.payload;
     })
-    .addCase(changeIsFormSendedSuccessfullyStatus, (state, action) => {
-      state.isFormSendedSuccessfully = action.payload;
+    .addCase(changePassword, (state, action) => {
+      state.password = action.payload;
     })
-    .addCase(changeIsFormEditedSuccessfullyStatus, (state, action) => {
-      state.isFormEditedSuccessfully = action.payload;
-    })
-    .addCase(showErrorFormMessage, (state, action) => {
-      state.isShowFormErrorMessage = action.payload.isShowErrorMessage;
-      state.formErrorMessage = action.payload.errorMessageText;
-    });
 });
 
 export {form};

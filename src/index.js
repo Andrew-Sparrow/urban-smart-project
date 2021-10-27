@@ -4,26 +4,13 @@ import './index.css';
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 
-import {getAxiosInstance} from './services/api';
 import App from './components/app/app';
 import rootReducer from './store/root-reducer';
-import {fetchOrdersList} from './store/api-actions';
-import {redirect} from './store/middlewares/redirect';
 import reportWebVitals from './reportWebVitals';
-
-const api = getAxiosInstance();
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      thunk: {
-        extraArgument: api,
-      },
-    }).concat(redirect),
 });
-
-store.dispatch(fetchOrdersList());
 
 ReactDOM.render(
   <React.StrictMode>
