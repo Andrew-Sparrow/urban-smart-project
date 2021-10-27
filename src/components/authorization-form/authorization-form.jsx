@@ -2,9 +2,11 @@ import SubmitButton from '../submit-button/submit-button';
 import {useDispatch, useSelector} from 'react-redux';
 import {changeLogin} from '../../store/actions';
 import {changePassword} from '../../store/actions';
+import {AppRoute, AuthorizationStatus} from '../../const';
+import {redirectToRoute, changeAuthorizationStatus} from '../../store/actions';
 
-import { getLogin } from '../../store/form/selectors';
-import {getPassword} from '../../store/form/selectors';
+import {getLogin} from '../../store/user/selectors';
+import {getPassword} from '../../store/user/selectors';
 import Utils from '../../utils/utils';
 
 const AuthorizationForm = (props) => {
@@ -24,6 +26,12 @@ const AuthorizationForm = (props) => {
     dispatch(changePassword(value));
   };
 
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    dispatch(changeAuthorizationStatus(AuthorizationStatus.AUTH));
+    dispatch(redirectToRoute(AppRoute.PROFILE));
+  };
+
   return (
       <div className="form-container">
         <h2 className="form__title">Authorization</h2>
@@ -31,6 +39,7 @@ const AuthorizationForm = (props) => {
           <form
             className="form"
             action=""
+            onSubmit={handleSubmit}
           >
             <label className="form__label" htmlFor="login">Login*</label>
             <input
@@ -40,8 +49,9 @@ const AuthorizationForm = (props) => {
             />
             <label className="form__label" htmlFor="password">Password*</label>
             <input
-            className="form__input"
-            onChange={handlePasswordChange}
+              className="form__input"
+              type="password"
+              onChange={handlePasswordChange}
               id="password"
               name="password"
             />

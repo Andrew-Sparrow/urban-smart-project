@@ -4,7 +4,9 @@ import browserHistory from '../../browser-history';
 
 import {AppRoute} from '../../const';
 import Main from '../main/main';
+import Profile from '../profile/profile';
 import NotFound from '../not-found/not-found';
+import PrivateRoute from '../private-route/private-route';
 
 function App() {
 
@@ -14,6 +16,12 @@ function App() {
         <Route exact path={AppRoute.MAIN}>
           <Main className="page page--index" />
         </Route>
+        <PrivateRoute
+          exact
+          path={AppRoute.PROFILE}
+          render={() => <Profile />}
+        >
+        </PrivateRoute>
         <Route>
           <NotFound />
         </Route>

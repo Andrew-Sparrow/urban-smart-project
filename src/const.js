@@ -1,20 +1,9 @@
 export const AppRoute = {
   MAIN: '/',
-  NEW_ORDER_FORM: '/form',
-  EDIT_FORM: '/edit/:id'
+  PROFILE: '/profile',
 };
 
-export const groupList = [
-  'All',
-  'Favorites'
-];
-
-export const groupNames = {
-  ALL: 'All',
-  FAVORITES: 'Favorites',
-}
-
-export const APIRoute = {
-  ORDERS: '/orders',
-  FAVORITE: 'favorite',
+export const AuthorizationStatus = {
+  AUTH: 'AUTH',
+  NO_AUTH: 'NO_AUTH',
 };

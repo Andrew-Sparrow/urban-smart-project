@@ -7,9 +7,11 @@ import {Provider} from 'react-redux';
 import App from './components/app/app';
 import rootReducer from './store/root-reducer';
 import reportWebVitals from './reportWebVitals';
+import {redirect} from './middlewares/redirect';
 
 const store = configureStore({
   reducer: rootReducer,
+  middleware: [redirect],
 });
 
 ReactDOM.render(

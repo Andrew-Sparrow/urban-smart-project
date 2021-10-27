@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import {form} from './form/form';
+import {user} from './user/user';
 
 export const NameSpace = {
-  FORM: 'FORM',
+  USER: 'USER',
 };
 
 export default combineReducers({
-  [NameSpace.FORM]: form
+  [NameSpace.USER]: user
 });
