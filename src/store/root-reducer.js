@@ -6,5 +6,5 @@ export const NameSpace = {
 };
 
 export default combineReducers({
-  [NameSpace.FORM]: form,
+  [NameSpace.FORM]: form
 });

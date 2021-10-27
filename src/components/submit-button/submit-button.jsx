@@ -1,13 +1,13 @@
 import React from 'react';
 
 const SubmitButton = (props) => {
-  const {isFormLoading} = props;
+  const {isAuthorizationDataCorrect} = props;
 
   return (
     <button
-      className={`press-button press-button__submit ${isFormLoading && "press-button--disabled"}`}
+      className={`press-button ${!isAuthorizationDataCorrect && "press-button--disabled"}`}
       type="submit"
-      disabled={isFormLoading}
+      disabled={!isAuthorizationDataCorrect}
     > {'Login'}</button>
   );
 };

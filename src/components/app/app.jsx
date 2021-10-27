@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter history={browserHistory}>
       <Switch>
         <Route exact path={AppRoute.MAIN}>
-          <Main className="page page--gray page--index" />
+          <Main className="page page--index" />
         </Route>
         <Route>
           <NotFound />

@@ -465,4 +465,14 @@ img {
   background-color: #637ffc;
   cursor: pointer;
 }
+
+.press-button--disabled {
+  background-color: rgb(155, 155, 155);
+  cursor: default;
+}
+
+.press-button--disabled:hover {
+  background-color: rgb(155, 155, 155);
+  cursor: default;
+}
 /*# sourceMappingURL=main.css.map */
